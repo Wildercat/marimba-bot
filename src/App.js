@@ -23,7 +23,7 @@ class App extends React.Component {
     let response;
     const post = { song_id: song_id }
     try {
-      response = await axios.post('http://127.0.0.1:8000/api/history', post)
+      response = await axios.post('https://marimba-bot-259814.appspot.com/api/history', post)
     } catch (error) {
       // Error 
       if (error.response) {
