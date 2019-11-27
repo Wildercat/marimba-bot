@@ -14,6 +14,7 @@ class Song extends React.Component {
         this.handleSubmitSong = this.handleSubmitSong.bind(this);
         this.handlePlaySong = this.handlePlaySong.bind(this);
         this.handleTestSong = this.handleTestSong.bind(this);
+        this.handleStopSong = this.handleStopSong.bind(this);
 
         this.notes = [
             'C4',
@@ -134,7 +135,7 @@ class Song extends React.Component {
             "G": "/tones/g.wav",
             "A": "/tones/a.wav",
         }, {
-            "volume": 0,
+            "volume": -10,
             "fadeOut": "64n",
         }).toMaster();
         console.log('just checking');
@@ -151,7 +152,7 @@ class Song extends React.Component {
                     // synth.triggerAttackRelease(ns[idx], '8n', time);
                 }
             })
-        }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "4n").start(0);
+        }, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], "8n").start(0);
         Tone.Transport.start();
     }
 
@@ -191,16 +192,20 @@ class Song extends React.Component {
         // });
     }
 
+    handleStopSong() {
+        Tone.Transport.stop();
+    }
+
     render() {
         const Renderedarray = this.state.arr;
         return (
             <>
-                <p>songhere</p>
                 <Grid onClick={(i, j) => this.handleClick(i, j)} array={Renderedarray} size={2} />
-                <button onClick={this.handleTestSong} type="button" className="btn btn-warning">Test Song</button>
+                {/* <button onClick={this.handleTestSong} type="button" className="btn btn-warning">Test Song</button>
+                <button onClick={this.handleStopSong} type="button" className="btn btn-warning">Stop Song</button> */}
                 <button onClick={this.handleSubmitSong} type="button" className="btn btn-primary">Save Song</button>
                 {this.playButton()}
-                {/* <button onClick={this.handlePlaySong} type='button' className="btn btn-danger">Play Song</button> */}
+                
             </>
         );
     }
