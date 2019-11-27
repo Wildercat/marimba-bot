@@ -121,10 +121,6 @@ class App extends React.Component {
       <Router>
         <div className='container' >
           <Header />
-          
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
           <Switch>
             {/* <Route path="/songs/53">
               {this.songViewer(53)}

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Tone from 'tone';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 import Grid from './Grid';
 
@@ -119,7 +121,7 @@ class Song extends React.Component {
             return item.map((jtem, jdx) => {
                 return (
                     <div style={{
-                        background: `${ !jtem ? '#3fc1c9' : '#fc5185' }`,
+                        background: `${!jtem ? '#3fc1c9' : '#fc5185'}`,
                         height: '100%'
                     }} ></div>
                 )
@@ -140,7 +142,7 @@ class Song extends React.Component {
     // -------- Local Music Playback -----------
     triggerSynth(note) {
         let synth = new Tone.Synth().toMaster();
-        synth.triggerAttackRelease(note, '8n');
+        synth.triggerAttackRelease(note, '8n', undefined, .5);
     }
 
     handleTestSong() {
@@ -217,11 +219,20 @@ class Song extends React.Component {
         console.log(Renderedarray);
         return (
             <>
-                <Grid onClick={(i, j) => this.handleClick(i, j)} array={Renderedarray} size={2} />
+                <div className='row justify-content-center'>
+
+                    <Grid onClick={(i, j) => this.handleClick(i, j)} array={Renderedarray} size={2} />
+                </div>
                 {/* <button onClick={this.handleTestSong} type="button" className="btn btn-warning">Test Song</button>
                 <button onClick={this.handleStopSong} type="button" className="btn btn-warning">Stop Song</button> */}
-                <button onClick={this.handleSubmitSong} type="button" className="btn btn-primary">Save Song</button>
-                {this.playButton()}
+                <div className='row justify-content-center' >
+
+
+                    <button onClick={this.handleSubmitSong} type="button" className="btn btn-danger rounded-circle">
+                        <FontAwesomeIcon icon={faPlay} />
+                    </button>
+                    {this.playButton()}
+                </div>
 
             </>
         );
