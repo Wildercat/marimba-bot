@@ -12,7 +12,7 @@ class Col extends React.Component {
             overflow: 'hidden'
         }
         return (
-            <div onClick={this.props.onClick} data-j={this.props.idx} className='col p-0 border grid_tile' style={styling}>
+            <div onClick={this.props.onClick} data-j={this.props.idx} className='col p-0 border grid_tile rounded' style={styling}>
                 {this.props.children}
             </div>
         );

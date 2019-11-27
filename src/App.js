@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Home from './Home';
+import Header from './Header';
 import Song from './Song';
 import './App.css';
 import {
@@ -16,6 +17,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       song: null
+    }
+    this.colors = {
+      darkBlue: '#364f6b',
+      lightBlue: '#3fc1c9',
+      offWhite: '#f5f5f5',
+      pink: '#fc5185',
     }
   }
 
@@ -112,20 +119,9 @@ class App extends React.Component {
     // this.createHistory(43);
     return (
       <Router>
-        <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About</Link>
-              </li>
-              <li>
-                <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
+        <div className='container' >
+          <Header />
+          
 
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}

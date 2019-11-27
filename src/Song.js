@@ -112,6 +112,22 @@ class Song extends React.Component {
         ) : null;
     }
 
+    // --------- Visual/Styling -----------
+
+    renderArray() {
+        let rendered = this.state.arr.map((item, idx) => {
+            return item.map((jtem, jdx) => {
+                return (
+                    <div style={{
+                        background: `${ !jtem ? '#3fc1c9' : '#fc5185' }`,
+                        height: '100%'
+                    }} ></div>
+                )
+            })
+        });
+        return rendered;
+    }
+
     // PlayButton() {
     //     const id = this.state.song_id;
     //     return id ? (
@@ -197,7 +213,8 @@ class Song extends React.Component {
     }
 
     render() {
-        const Renderedarray = this.state.arr;
+        const Renderedarray = this.renderArray();
+        console.log(Renderedarray);
         return (
             <>
                 <Grid onClick={(i, j) => this.handleClick(i, j)} array={Renderedarray} size={2} />
@@ -205,7 +222,7 @@ class Song extends React.Component {
                 <button onClick={this.handleStopSong} type="button" className="btn btn-warning">Stop Song</button> */}
                 <button onClick={this.handleSubmitSong} type="button" className="btn btn-primary">Save Song</button>
                 {this.playButton()}
-                
+
             </>
         );
     }
