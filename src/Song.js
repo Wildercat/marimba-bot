@@ -219,7 +219,7 @@ class Song extends React.Component {
         console.log(Renderedarray);
         return (
             <>
-                <div className='row justify-content-center'>
+                <div className='row justify-content-center m-0 p-3'>
 
                     <Grid onClick={(i, j) => this.handleClick(i, j)} array={Renderedarray} size={2} />
                 </div>
@@ -228,8 +228,8 @@ class Song extends React.Component {
                 <div className='row justify-content-center' >
 
 
-                    <button onClick={this.handleSubmitSong} type="button" className="btn btn-danger rounded-circle">
-                        <FontAwesomeIcon icon={faPlay} />
+                    <button onClick={this.handleSubmitSong} type="button" className="btn btn-danger">
+                        Play Song
                     </button>
                     {this.playButton()}
                 </div>
