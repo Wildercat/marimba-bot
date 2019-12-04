@@ -12,7 +12,7 @@ class Col extends React.Component {
             overflow: 'hidden'
         }
         return (
-            <div onClick={this.props.onClick} data-j={this.props.idx} className='col p-0 border grid_tile rounded' style={styling}>
+            <div onMouseDown={this.props.onClick} data-j={this.props.idx} className='col p-0 border grid_tile rounded' style={styling}>
                 {this.props.children}
             </div>
         );
@@ -34,7 +34,7 @@ class Row extends React.Component {
     }
     render() {
         return (
-            <div data-i={this.props.idx} className='row p-0' style={{width: this.props.dims.width * this.props.dims.size + 'em'}}>
+            <div data-i={this.props.idx} className='row p-0 m-0' style={{width: this.props.dims.width * this.props.dims.size + 'em'}}>
                 {this.makeCols()}
             </div>
         )
@@ -63,7 +63,7 @@ class Grid extends React.Component {
     render() {
         let styling = {
             height: this.dims.height * this.dims.size + 'em',
-            width: this.dims.width * this.dims.size + 'em'
+            width: this.dims.width * this.dims.size + 'em',
         }
         return (
             <div className='container p-0' style={styling}>
