@@ -23,7 +23,9 @@ class Song extends React.Component {
         ]
     }
 
+    
     async createSong(song_array) {
+        // Create a new song entry, then store it's ID in state
         let response;
         const post = { data: JSON.stringify(song_array) }
         try {
@@ -45,6 +47,7 @@ class Song extends React.Component {
     }
 
     handleClick(i, j) {
+        // When a tile is clicked, flip it's value
         let arr = this.state.arr;
         arr[i][j] = arr[i][j] ? 0 : 1;
         this.triggerSynth(this.notes[j]);
@@ -62,6 +65,7 @@ class Song extends React.Component {
     }
 
     async createHistory() {
+        // Create a new history entry using the current song ID
         let response;
         const post = { song_id: this.state.song_id }
         try {
@@ -88,6 +92,7 @@ class Song extends React.Component {
     // --------- Visual/Styling -----------
 
     renderArray() {
+        // from the data array, create the array with the correct contents to be passed to the Grid component
         let rendered = this.state.arr.map((item, idx) => {
             return item.map((jtem, jdx) => {
                 return (
@@ -100,7 +105,6 @@ class Song extends React.Component {
         });
         return rendered;
     }
-
 
     // -------- Local Music Playback -----------
     triggerSynth(note) {
@@ -116,11 +120,7 @@ class Song extends React.Component {
 
                     <Grid onClick={(i, j) => this.handleClick(i, j)} array={Renderedarray} size={2} />
                 </div>
-                {/* <button onClick={this.handleTestSong} type="button" className="btn btn-warning">Test Song</button>
-                <button onClick={this.handleStopSong} type="button" className="btn btn-warning">Stop Song</button> */}
                 <div className='row justify-content-center' >
-
-
                     <button onClick={this.handleSubmitSong} type="button" className="btn btn-danger">
                         Play Song
                     </button>
