@@ -15,7 +15,7 @@ class Header extends React.Component {
                         <div className="container">
                             <h1 className="display-4">Welcome!</h1>
                             <p className="lead">MarimBot is offline for the holidays.</p>
-                            <p>If you would like to learn more about it, watch the <a className="text-secondary" href="https://youtu.be/M4Lw0h49BzY" target="_blank">demo video</a>.</p>
+                            <p>If you would like to learn more about it, watch the <a className="text-secondary" href="https://youtu.be/M4Lw0h49BzY" target="_blank" rel="noopener noreferrer">demo video</a>.</p>
                         </div>
                     </div>
                 </div>
