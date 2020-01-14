@@ -5,7 +5,7 @@ class Header extends React.Component {
         return (
             <>
                 <div className='row justify-content-center pt-2'>
-                    <h1 className='display-4 text-primary'>Marimbot</h1>
+                    <h1 className='display-4 text-primary'>MarimBot</h1>
                 </div>
                 <div className='row justify-content-center'>
                     <p className='text-primary m-0 mb-4'>Click on the squares and press play!</p>
